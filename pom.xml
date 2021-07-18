@@ -23,7 +23,7 @@
 
 	<modules>
 		<module>sb-int-polling</module>
-
+		<module>sb-int-rest</module>
 	</modules>
 
 	<developers>
@@ -33,7 +33,7 @@
 			<url>https://www.linkedin.com/in/v3sagar</url>
 		</developer>
 	</developers>
-	
+
 	<dependencies>
 	</dependencies>
 
