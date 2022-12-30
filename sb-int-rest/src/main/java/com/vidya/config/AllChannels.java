@@ -16,15 +16,25 @@ import org.springframework.integration.dsl.MessageChannels;
  * @author Vidya
  */
 @Configuration
-public class HelloChannels {
+public class AllChannels {
 
 	private ExecutorService executor = Executors.newCachedThreadPool();
+
+	@Bean(name = "inboundHealthChannel")
+	public PublishSubscribeChannel inboundHealthChannel() {
+		return MessageChannels.publishSubscribe(executor).get();
+	}
+
+	@Bean(name = "replyHealthChannel")
+	public DirectChannel replyHealthChannel() {
+		return new DirectChannel();
+	}
 
 	@Bean(name = "inboundHelloChannel")
 	public PublishSubscribeChannel inboundHelloChannel() {
 		return MessageChannels.publishSubscribe(executor).get();
 	}
-	
+
 	@Bean(name = "replyHelloChannel")
 	public DirectChannel replyHelloChannel() {
 		return new DirectChannel();

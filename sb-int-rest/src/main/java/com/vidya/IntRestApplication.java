@@ -2,8 +2,6 @@ package com.vidya;
 
 import java.util.TimeZone;
 
-import javax.annotation.PostConstruct;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +12,8 @@ import org.springframework.integration.http.config.EnableIntegrationGraphControl
 import org.springframework.retry.annotation.EnableRetry;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+
+import jakarta.annotation.PostConstruct;
 
 @SpringBootApplication
 @Configuration
