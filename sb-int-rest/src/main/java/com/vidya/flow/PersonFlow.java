@@ -8,7 +8,6 @@ import static java.util.Map.entry;
 import java.text.MessageFormat;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -18,17 +17,13 @@ import org.springframework.integration.http.dsl.Http;
 import org.springframework.integration.http.inbound.HttpRequestHandlingMessagingGateway;
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.vidya.util.JsonUtil;
 
 /**
  * @author Vidya
  */
 @Component
 public class PersonFlow {
-
-	@Autowired
-	private ObjectMapper objectMapper;
 	
 	/*
 	 * GET
@@ -52,12 +47,7 @@ public class PersonFlow {
 				.log(LoggingHandler.Level.INFO, message -> MessageFormat.format("Get persion details for person id: {0}", message.getPayload()))
 				.handle((payload, headers) -> {
 					String personId = (String) payload;
-					try {
-						return objectMapper.writeValueAsString(Map.ofEntries(entry("personId", personId)));
-					} catch (JsonProcessingException e) {
-						e.printStackTrace();
-						return "{}";
-					}
+					return JsonUtil.toJsonString(Map.ofEntries(entry("personId", personId)));
 				})
 				.channel("replyPersonChannel")
 				.get();

@@ -8,15 +8,17 @@ import java.util.concurrent.Executors;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.integration.annotation.BridgeFrom;
 import org.springframework.integration.channel.DirectChannel;
 import org.springframework.integration.channel.PublishSubscribeChannel;
 import org.springframework.integration.dsl.MessageChannels;
+import org.springframework.messaging.MessageChannel;
 
 /**
  * @author Vidya
  */
 @Configuration
-public class AllChannels {
+public class ChannelConfig {
 
 	private ExecutorService executor = Executors.newCachedThreadPool();
 
@@ -30,13 +32,23 @@ public class AllChannels {
 		return new DirectChannel();
 	}
 
-	@Bean(name = "inboundHelloChannel")
-	public PublishSubscribeChannel inboundHelloChannel() {
-		return MessageChannels.publishSubscribe(executor).get();
+	/* -- Start: Multicasting channel configuration ----  */
+	@Bean(name = "pubSubChannel")
+	public MessageChannel pubSubChannel() {
+		return new PublishSubscribeChannel();
 	}
 
-	@Bean(name = "replyHelloChannel")
-	public DirectChannel replyHelloChannel() {
+	@Bean(name = "directChannel1")
+	@BridgeFrom(value = "pubSubChannel")
+	public MessageChannel directChannel1() {
 		return new DirectChannel();
 	}
+
+	@Bean(name = "directChannel2")
+	@BridgeFrom(value = "pubSubChannel")
+	public MessageChannel directChannel2() {
+		return new DirectChannel();
+	}
+	/* -- End: Multicasting channel configuration ----  */
+	
 }

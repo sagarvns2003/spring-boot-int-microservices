@@ -7,7 +7,6 @@ import static java.util.Map.entry;
 
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -17,16 +16,13 @@ import org.springframework.integration.http.inbound.HttpRequestHandlingMessaging
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.vidya.util.JsonUtil;
 
 /**
  * @author Vidya
  */
 @Component
 public class HealthFlow {
-
-	@Autowired
-	private ObjectMapper objectMapper;
 
 	@Bean
 	public HttpRequestHandlingMessagingGateway getHealthInboundHttp() {
@@ -41,6 +37,6 @@ public class HealthFlow {
 
 	@ServiceActivator(inputChannel = "inboundHealthChannel")
 	public String handleHealth() throws JsonProcessingException {
-		return objectMapper.writeValueAsString(Map.ofEntries(entry("isAvailable", true)));
+		return JsonUtil.toJsonString(Map.ofEntries(entry("isAvailable", true)));
 	}
 }

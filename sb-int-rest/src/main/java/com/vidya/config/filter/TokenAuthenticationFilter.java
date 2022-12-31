@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.vidya.config;
+package com.vidya.config.filter;
 
 import java.io.IOException;
 
