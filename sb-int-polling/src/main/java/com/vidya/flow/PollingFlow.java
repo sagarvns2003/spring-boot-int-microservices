@@ -4,7 +4,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.integration.dsl.IntegrationFlow;
-import org.springframework.integration.dsl.IntegrationFlows;
 import org.springframework.integration.dsl.Pollers;
 import org.springframework.integration.endpoint.MethodInvokingMessageSource;
 import org.springframework.integration.handler.LoggingHandler.Level;
@@ -17,7 +16,7 @@ public class PollingFlow {
 
 	@Bean
 	public IntegrationFlow pollFlow() {
-		return IntegrationFlows
+		return IntegrationFlow
 				.from(this.integerMessageSource(), c -> c.poller(Pollers.fixedRate(3000).maxMessagesPerPoll(2)))
 
 				.filter((Integer p) -> p >= 0)

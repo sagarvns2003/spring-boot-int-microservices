@@ -40,7 +40,7 @@ public class HealthFlow {
 	}
 
 	@ServiceActivator(inputChannel = "inboundHealthChannel")
-	public String handleHello() throws JsonProcessingException {
+	public String handleHealth() throws JsonProcessingException {
 		return objectMapper.writeValueAsString(Map.ofEntries(entry("isAvailable", true)));
 	}
 }

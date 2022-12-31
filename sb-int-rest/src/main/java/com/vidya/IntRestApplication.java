@@ -25,6 +25,7 @@ import jakarta.annotation.PostConstruct;
 @EnableIntegrationGraphController(allowedOrigins = "http://localhost:8082")
 @EnableIntegrationManagement
 public class IntRestApplication {
+	
 	public static void main(String[] args) {
 		SpringApplication.run(IntRestApplication.class, args);
 	}
