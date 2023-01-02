@@ -32,7 +32,17 @@ public class ChannelConfig {
 		return new DirectChannel();
 	}
 
-	/* -- Start: Multicasting channel configuration ----  */
+	@Bean(name = "getPersonChannel")
+	public PublishSubscribeChannel getPersonChannel() {
+		return MessageChannels.publishSubscribe(executor).get();
+	}
+
+	@Bean(name = "replyPersonChannel")
+	public DirectChannel replyPersonChannel() {
+		return new DirectChannel();
+	}
+
+	/* -- Start: Multicasting channel configuration ---- */
 	@Bean(name = "pubSubChannel")
 	public MessageChannel pubSubChannel() {
 		return new PublishSubscribeChannel();
@@ -49,6 +59,6 @@ public class ChannelConfig {
 	public MessageChannel directChannel2() {
 		return new DirectChannel();
 	}
-	/* -- End: Multicasting channel configuration ----  */
-	
+	/* -- End: Multicasting channel configuration ---- */
+
 }

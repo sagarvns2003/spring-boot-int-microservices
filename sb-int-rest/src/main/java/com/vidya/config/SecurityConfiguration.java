@@ -24,13 +24,20 @@ public class SecurityConfiguration {
 
 	@Bean
 	public WebSecurityCustomizer webSecurityCustomizer() {
-		return (web) -> web.debug(false).ignoring().requestMatchers(this.authIgnorePath);
+		return (web) -> web
+				.debug(false)
+				.ignoring()
+				.requestMatchers(this.authIgnorePath);
 	}
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		TokenAuthenticationFilter tokenAuthenticationFilter = new TokenAuthenticationFilter(this.authToken);
-		http.csrf().disable().addFilterBefore(tokenAuthenticationFilter, BasicAuthenticationFilter.class);
+		
+		http
+		.csrf()
+		.disable()
+		.addFilterBefore(new TokenAuthenticationFilter(this.authToken), BasicAuthenticationFilter.class);
+		
 		return http.build();
 	}
 }
