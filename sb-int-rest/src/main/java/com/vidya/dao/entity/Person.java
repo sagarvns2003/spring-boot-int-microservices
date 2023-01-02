@@ -1,5 +1,6 @@
 package com.vidya.dao.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.vidya.model.Status;
 
 import jakarta.persistence.Column;
@@ -21,6 +22,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "person")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Person {
 
 	@Id
