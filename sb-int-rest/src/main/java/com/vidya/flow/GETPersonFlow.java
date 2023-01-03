@@ -30,7 +30,7 @@ import jakarta.transaction.Transactional;
  * @author Vidya
  */
 @Component
-public class PersonFlow {
+public class GETPersonFlow {
 	
 	@Autowired
 	private PersonRepository personRepository;

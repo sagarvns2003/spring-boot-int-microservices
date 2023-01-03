@@ -22,7 +22,7 @@ import com.vidya.util.JsonUtil;
  * @author Vidya
  */
 @Component
-public class HealthFlow {
+public class GETHealthFlow {
 
 	@Bean
 	public HttpRequestHandlingMessagingGateway getHealthInboundHttp() {
