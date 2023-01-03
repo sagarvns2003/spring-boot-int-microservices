@@ -46,9 +46,12 @@ public class ChannelConfig {
 	public DirectChannel replyPostPersonChannel() {
 		return new DirectChannel();
 	}
-	
-	
-	
+
+	@Bean(name = "replyPatchPersonChannel")
+	public DirectChannel replyPatchPersonChannel() {
+		return new DirectChannel();
+	}
+
 	/* -- Start: Multicasting channel configuration ---- */
 	@Bean(name = "pubSubChannel")
 	public MessageChannel pubSubChannel() {
