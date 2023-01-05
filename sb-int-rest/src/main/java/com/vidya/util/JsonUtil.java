@@ -1,5 +1,6 @@
 package com.vidya.util;
 
+import java.io.IOException;
 import java.util.Objects;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -52,6 +53,24 @@ public class JsonUtil {
 		try {
 			return objectMapper.readValue(jsonString, typeRef);
 		} catch (JsonProcessingException jpe) {
+			jpe.printStackTrace();
+			return null;
+		}
+	}
+
+	public static <T> T fromJson(final byte[] payload, TypeReference<T> typeRef) {
+		try {
+			return objectMapper.readValue(payload, typeRef);
+		} catch (IOException jpe) {
+			jpe.printStackTrace();
+			return null;
+		}
+	}
+
+	public static <T> T fromJson(final byte[] payload, Class<T> clazz) {
+		try {
+			return objectMapper.readValue(payload, clazz);
+		} catch (IOException jpe) {
 			jpe.printStackTrace();
 			return null;
 		}

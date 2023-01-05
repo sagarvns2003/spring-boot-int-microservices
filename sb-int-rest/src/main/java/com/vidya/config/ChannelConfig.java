@@ -52,6 +52,16 @@ public class ChannelConfig {
 		return new DirectChannel();
 	}
 
+	@Bean(name = "replyTriggerIntegrationChannel")
+	public DirectChannel replyTriggerIntegrationChannel() {
+		return new DirectChannel();
+	}
+
+	@Bean(name = "transformPersonTriggerChannel")
+	public PublishSubscribeChannel transformPersonTriggerChannel() {
+		return MessageChannels.publishSubscribe(executor).get();
+	}
+
 	/* -- Start: Multicasting channel configuration ---- */
 	@Bean(name = "pubSubChannel")
 	public MessageChannel pubSubChannel() {

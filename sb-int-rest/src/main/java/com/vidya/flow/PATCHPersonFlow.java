@@ -32,8 +32,8 @@ public class PATCHPersonFlow {
 	private EntityManager entityManager;
 	
 	/*
-	 * POST
-	 * Create person example
+	 * Patch
+	 * Update person example
 	 */
 	@Bean
 	public HttpRequestHandlingMessagingGateway patchPersonInboundHttp() {
