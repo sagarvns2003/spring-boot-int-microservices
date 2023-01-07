@@ -78,7 +78,6 @@ public class POSTTriggerFlow {
 	@Bean
 	public IntegrationFlow ackTrigger() {
 		return IntegrationFlow.from("directChannel1") // this channel is connected to bridge pubSubChannel and will have same message
-				// .transform(payload -> Map.of("status", "IN_PROGRESS"))
 				.transform(Message.class, message -> {
 					String triggerID = message.getHeaders().get(HEADER_TRIGGER_ID, String.class);
 					// List<Person> personList = (List<Person>) message.getPayload();
