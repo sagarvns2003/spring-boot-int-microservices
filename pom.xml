@@ -25,6 +25,7 @@
 		<module>sb-int-polling</module>
 		<module>sb-int-rest</module>
 		<module>sb-int-multicasting</module>
+		<module>sb-int-kafka</module>
 	</modules>
 
 	<developers>
