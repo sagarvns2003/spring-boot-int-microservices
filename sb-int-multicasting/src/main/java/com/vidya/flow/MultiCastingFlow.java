@@ -23,7 +23,8 @@ public class MultiCastingFlow {
 		return IntegrationFlow
 				.fromSupplier(this.integerSource()::getAndIncrement,
 						c -> c.poller(Pollers.fixedRate(3000).maxMessagesPerPoll(2)))
-				.filter((Integer p) -> p >= 0).log(Level.INFO, p -> "From producerFlow: " + p.getPayload().toString())
+				.filter((Integer p) -> p >= 0)
+				.log(Level.INFO, p -> "From producerFlow: " + p.getPayload().toString())
 				.channel(pubSubChannel).get();
 	}
 
