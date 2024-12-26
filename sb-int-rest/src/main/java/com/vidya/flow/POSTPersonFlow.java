@@ -50,7 +50,7 @@ public class POSTPersonFlow {
 				.requestChannel("postPersonInboundChannel")
 				.replyChannel("replyPostPersonChannel")
 				.replyTimeout(20000)
-				.get();
+				.getObject();
 	}
 	
 	@Bean

@@ -32,7 +32,7 @@ public class GETHealthFlow {
 				.requestChannel("inboundHealthChannel")
 				.replyChannel("replyHealthChannel")
 				.replyTimeout(30000)
-				.get();
+				.getObject();
 	}
 
 	@ServiceActivator(inputChannel = "inboundHealthChannel")

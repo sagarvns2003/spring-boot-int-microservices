@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SbIntKafkaApplication {
+public class KafkaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SbIntKafkaApplication.class, args);
+		SpringApplication.run(KafkaApplication.class, args);
 	}
 
 }

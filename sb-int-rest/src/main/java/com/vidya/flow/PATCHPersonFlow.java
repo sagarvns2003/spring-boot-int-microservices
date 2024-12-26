@@ -45,7 +45,7 @@ public class PATCHPersonFlow {
 				.requestChannel("patchPersonInboundChannel")
 				.replyChannel("replyPatchPersonChannel")
 				.replyTimeout(20000)
-				.get();
+				.getObject();
 	}
 	
 	@Bean

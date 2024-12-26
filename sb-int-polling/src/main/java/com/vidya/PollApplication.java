@@ -7,9 +7,7 @@ import org.springframework.integration.config.EnableIntegration;
 @SpringBootApplication
 @EnableIntegration
 public class PollApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(PollApplication.class, args);
-	}
-
+  public static void main(String[] args) {
+    SpringApplication.run(PollApplication.class, args);
+  }
 }

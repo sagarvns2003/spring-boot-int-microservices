@@ -6,7 +6,7 @@
 		<groupId>com.vidya.sb-int-ms</groupId>
 		<artifactId>spring-boot-int-microservices</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
-		<relativePath>../</relativePath>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<groupId>com.vidya</groupId>
@@ -79,6 +79,14 @@
 						</exclude>
 					</excludes>
 				</configuration>
+				<executions>
+					<execution>
+						<id>build-info</id>
+						<goals>
+							<goal>build-info</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

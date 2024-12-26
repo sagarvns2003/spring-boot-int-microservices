@@ -50,7 +50,7 @@ public class GETPersonFlow {
 				.requestChannel("getPersonChannel")
 				.replyChannel("replyPersonChannel")
 				.replyTimeout(20000)
-				.get();
+				.getObject();
 	}
 
 	
