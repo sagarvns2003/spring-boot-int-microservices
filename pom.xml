@@ -26,6 +26,7 @@
 		<module>sb-int-rest</module>
 		<module>sb-int-multicasting</module>
 		<module>sb-int-kafka</module>
+		<module>sb-int-tcp-server</module>
 	</modules>
 
 	<developers>
